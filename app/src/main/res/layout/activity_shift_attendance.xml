@@ -47,9 +47,10 @@
             android:paddingBottom="24dp">
 
             <TextView
+                android:id="@+id/tv_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="12/25 (수) · 강남점"
+                android:text="오늘 · 강남점"
                 android:textColor="@color/text_tertiary"
                 android:textSize="12sp"
                 android:textStyle="bold" />
@@ -65,23 +66,24 @@
                 android:baselineAligned="false">
 
                 <LinearLayout style="@style/SummaryCol">
-                    <TextView style="@style/SummaryNum" android:text="3" android:textColor="@color/accent_green" />
+                    <TextView android:id="@+id/tv_present" style="@style/SummaryNum" android:text="0" android:textColor="@color/accent_green" />
                     <TextView style="@style/SummaryLabel" android:text="출근" />
                 </LinearLayout>
 
                 <LinearLayout style="@style/SummaryCol">
-                    <TextView style="@style/SummaryNum" android:text="1" android:textColor="@color/warn_orange" />
+                    <TextView android:id="@+id/tv_late" style="@style/SummaryNum" android:text="0" android:textColor="@color/warn_orange" />
                     <TextView style="@style/SummaryLabel" android:text="지각" />
                 </LinearLayout>
 
                 <LinearLayout style="@style/SummaryCol">
-                    <TextView style="@style/SummaryNum" android:text="1" android:textColor="@color/accent_red" />
+                    <TextView android:id="@+id/tv_absent" style="@style/SummaryNum" android:text="0" android:textColor="@color/accent_red" />
                     <TextView style="@style/SummaryLabel" android:text="결근" />
                 </LinearLayout>
             </LinearLayout>
 
             <!-- rows -->
             <LinearLayout
+                android:id="@+id/att_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="14dp"
@@ -91,43 +93,16 @@
                 android:showDividers="middle"
                 android:padding="4dp">
 
-                <LinearLayout style="@style/MemberRow" android:paddingHorizontal="12dp">
-                    <LinearLayout style="@style/MemberMeta" android:layout_marginStart="0dp">
-                        <TextView style="@style/MemberName" android:text="현우 · 오픈" />
-                        <TextView style="@style/MemberSub" android:text="09:00 출근 (정상)" />
-                    </LinearLayout>
-                    <TextView style="@style/MemberTag" android:text="출근"
-                        android:background="@drawable/bg_badge_approved" />
-                </LinearLayout>
-
-                <LinearLayout style="@style/MemberRow" android:paddingHorizontal="12dp">
-                    <LinearLayout style="@style/MemberMeta" android:layout_marginStart="0dp">
-                        <TextView style="@style/MemberName" android:text="민지 · 홀" />
-                        <TextView style="@style/MemberSub" android:text="14:12 출근 (12분 지각)" />
-                    </LinearLayout>
-                    <TextView style="@style/MemberTag" android:text="지각"
-                        android:background="@drawable/bg_badge_pending"
-                        android:textColor="@color/warn_orange" />
-                </LinearLayout>
-
-                <LinearLayout style="@style/MemberRow" android:paddingHorizontal="12dp">
-                    <LinearLayout style="@style/MemberMeta" android:layout_marginStart="0dp">
-                        <TextView style="@style/MemberName" android:text="지수 · 홀" />
-                        <TextView style="@style/MemberSub" android:text="14:00 출근 (정상)" />
-                    </LinearLayout>
-                    <TextView style="@style/MemberTag" android:text="출근"
-                        android:background="@drawable/bg_badge_approved" />
-                </LinearLayout>
-
-                <LinearLayout style="@style/MemberRow" android:paddingHorizontal="12dp">
-                    <LinearLayout style="@style/MemberMeta" android:layout_marginStart="0dp">
-                        <TextView style="@style/MemberName" android:text="태윤 · 마감" />
-                        <TextView style="@style/MemberSub" android:text="출근 기록 없음" />
-                    </LinearLayout>
-                    <TextView style="@style/MemberTag" android:text="결근"
-                        android:background="@drawable/bg_badge_rejected"
-                        android:textColor="@color/accent_red" />
-                </LinearLayout>
+                <TextView
+                    android:id="@+id/tv_att_empty"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:gravity="center"
+                    android:text="오늘 예정된 근무가 없습니다."
+                    android:textColor="@color/text_tertiary"
+                    android:textSize="12sp"
+                    android:visibility="gone" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

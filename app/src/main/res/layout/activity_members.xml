@@ -46,118 +46,37 @@
             android:paddingTop="8dp"
             android:paddingBottom="24dp">
 
-            <!-- pending join request -->
+            <!-- pending join requests -->
             <TextView
+                android:id="@+id/tv_pending_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="가입 승인 대기 1"
+                android:text="가입 승인 대기"
                 android:textColor="@color/warn_orange"
                 android:textSize="12sp"
                 android:textStyle="bold" />
 
             <LinearLayout
-                android:id="@+id/pending_join_card"
+                android:id="@+id/pending_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:background="@drawable/bg_card_warn"
-                android:padding="14dp">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="김알바"
-                        android:textColor="@color/text_primary"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="3dp"
-                        android:text="초대코드 A1B2C3 · 방금 신청"
-                        android:textColor="@color/text_tertiary"
-                        android:textSize="11sp" />
-                </LinearLayout>
-
-                <TextView
-                    android:id="@+id/btn_approve_join"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/bg_btn_primary"
-                    android:text="승인"
-                    android:textColor="@color/white"
-                    android:textSize="12sp"
-                    android:textStyle="bold"
-                    android:paddingHorizontal="16dp"
-                    android:paddingVertical="9dp"
-                    android:foreground="?attr/selectableItemBackground" />
-            </LinearLayout>
+                android:orientation="vertical" />
 
             <!-- member list -->
             <TextView
+                android:id="@+id/tv_members_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="강남점 · 멤버 6명"
+                android:text="멤버"
                 android:textColor="@color/text_tertiary"
                 android:textSize="12sp" />
 
-            <LinearLayout style="@style/MemberRow">
-                <View style="@style/MemberAvatar" />
-                <LinearLayout style="@style/MemberMeta">
-                    <TextView style="@style/MemberName" android:text="박사장" />
-                    <TextView style="@style/MemberSub" android:text="사장님 · 나" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout style="@style/MemberRow">
-                <View style="@style/MemberAvatar" />
-                <LinearLayout style="@style/MemberMeta">
-                    <TextView style="@style/MemberName" android:text="민지" />
-                    <TextView style="@style/MemberSub" android:text="홀 · 알바" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout style="@style/MemberRow">
-                <View style="@style/MemberAvatar" />
-                <LinearLayout style="@style/MemberMeta">
-                    <TextView style="@style/MemberName" android:text="현우" />
-                    <TextView style="@style/MemberSub" android:text="주방 · 알바" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout style="@style/MemberRow">
-                <View style="@style/MemberAvatar" />
-                <LinearLayout style="@style/MemberMeta">
-                    <TextView style="@style/MemberName" android:text="지수" />
-                    <TextView style="@style/MemberSub" android:text="홀 · 알바" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout style="@style/MemberRow">
-                <View style="@style/MemberAvatar" />
-                <LinearLayout style="@style/MemberMeta">
-                    <TextView style="@style/MemberName" android:text="태윤" />
-                    <TextView style="@style/MemberSub" android:text="주방 · 알바" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout style="@style/MemberRow">
-                <View style="@style/MemberAvatar" />
-                <LinearLayout style="@style/MemberMeta">
-                    <TextView style="@style/MemberName" android:text="서연" />
-                    <TextView style="@style/MemberSub" android:text="홀 · 알바" />
-                </LinearLayout>
-            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/members_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

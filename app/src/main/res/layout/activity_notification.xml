@@ -39,41 +39,23 @@
         android:layout_weight="1">
 
         <LinearLayout
+            android:id="@+id/noti_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:divider="@drawable/divider_line"
             android:showDividers="middle">
 
-            <LinearLayout style="@style/NotiRow">
-                <TextView style="@style/NotiTitle" android:text="🙋 가입 신청" />
-                <TextView style="@style/NotiBody" android:text="김알바님이 초대코드로 매장 참여를 신청했습니다." />
-                <TextView style="@style/NotiTime" android:text="방금 전" />
-            </LinearLayout>
-
-            <LinearLayout style="@style/NotiRow">
-                <TextView style="@style/NotiTitle" android:text="🔁 대타 지원" />
-                <TextView style="@style/NotiBody" android:text="현우님 대타 요청에 지수님이 지원했습니다. 승인이 필요해요." />
-                <TextView style="@style/NotiTime" android:text="30분 전" />
-            </LinearLayout>
-
-            <LinearLayout style="@style/NotiRow">
-                <TextView style="@style/NotiTitle" android:text="⚠️ 근태 이상 (지각)" />
-                <TextView style="@style/NotiBody" android:text="민지님이 14:00 근무에 12분 지각 출근했습니다." />
-                <TextView style="@style/NotiTime" android:text="2시간 전" />
-            </LinearLayout>
-
-            <LinearLayout style="@style/NotiRow">
-                <TextView style="@style/NotiTitle" android:text="⚠️ 근태 이상 (결근)" />
-                <TextView style="@style/NotiBody" android:text="태윤님이 18:00 마감 근무에 출근 기록이 없습니다." />
-                <TextView style="@style/NotiTime" android:text="어제" />
-            </LinearLayout>
-
-            <LinearLayout style="@style/NotiRow">
-                <TextView style="@style/NotiTitle" android:text="📢 공지 반응" />
-                <TextView style="@style/NotiBody" android:text="‘12월 스케줄 확정 안내’ 공지를 8명이 읽었습니다." />
-                <TextView style="@style/NotiTime" android:text="오늘 09:30" />
-            </LinearLayout>
+            <TextView
+                android:id="@+id/tv_noti_empty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="24dp"
+                android:gravity="center"
+                android:text="알림이 없습니다."
+                android:textColor="@color/text_tertiary"
+                android:textSize="13sp"
+                android:visibility="gone" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

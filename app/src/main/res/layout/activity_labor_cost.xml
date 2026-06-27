@@ -33,6 +33,7 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/tv_total"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
@@ -42,6 +43,7 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/tv_subtitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
@@ -95,6 +97,7 @@
             android:textStyle="bold" />
 
         <LinearLayout
+            android:id="@+id/cost_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -103,29 +106,16 @@
             android:paddingHorizontal="14dp"
             android:paddingVertical="4dp">
 
-            <LinearLayout style="@style/CostRow">
-                <TextView style="@style/CostName" android:text="현우" />
-                <TextView style="@style/CostHours" android:text="34h" />
-                <TextView style="@style/CostAmount" android:text="₩408,000" />
-            </LinearLayout>
-            <View style="@style/DetailDivider" />
-            <LinearLayout style="@style/CostRow">
-                <TextView style="@style/CostName" android:text="민지" />
-                <TextView style="@style/CostHours" android:text="28h" />
-                <TextView style="@style/CostAmount" android:text="₩336,000" />
-            </LinearLayout>
-            <View style="@style/DetailDivider" />
-            <LinearLayout style="@style/CostRow">
-                <TextView style="@style/CostName" android:text="지수" />
-                <TextView style="@style/CostHours" android:text="22h" />
-                <TextView style="@style/CostAmount" android:text="₩264,000" />
-            </LinearLayout>
-            <View style="@style/DetailDivider" />
-            <LinearLayout style="@style/CostRow">
-                <TextView style="@style/CostName" android:text="기타 3명" />
-                <TextView style="@style/CostHours" android:text="19h" />
-                <TextView style="@style/CostAmount" android:text="₩232,000" />
-            </LinearLayout>
+            <TextView
+                android:id="@+id/tv_cost_empty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:gravity="center"
+                android:text="집계할 인건비가 없습니다."
+                android:textColor="@color/text_tertiary"
+                android:textSize="12sp"
+                android:visibility="gone" />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

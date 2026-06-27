@@ -21,6 +21,7 @@
             android:gravity="center_vertical">
 
             <TextView
+                android:id="@+id/tv_store_name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -79,6 +80,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/tv_working_count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
@@ -109,6 +111,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/tv_approval_count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
@@ -148,6 +151,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/tv_today_labor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
@@ -176,6 +180,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/tv_month_labor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"

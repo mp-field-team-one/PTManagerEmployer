@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/MemberRow"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="12dp">
+
+    <LinearLayout style="@style/MemberMeta" android:layout_marginStart="0dp">
+        <TextView android:id="@+id/tv_name" style="@style/MemberName" android:text="이름" />
+        <TextView android:id="@+id/tv_sub" style="@style/MemberSub" android:text="" />
+    </LinearLayout>
+
+    <TextView android:id="@+id/tv_tag" style="@style/MemberTag" android:text="" />
+</LinearLayout>

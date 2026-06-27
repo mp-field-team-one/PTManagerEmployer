@@ -63,114 +63,16 @@
             android:layout_marginTop="14dp"
             android:orientation="vertical">
 
-            <LinearLayout
-                android:id="@+id/req_1"
+            <TextView
+                android:id="@+id/tv_pending_empty"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="@drawable/bg_card"
-                android:padding="14dp"
-                android:foreground="?attr/selectableItemBackground">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="현우 → 대타 요청"
-                        android:textColor="@color/text_primary"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/bg_badge_pending"
-                        android:text="지원자 2"
-                        android:textColor="@color/warn_orange"
-                        android:textSize="10sp"
-                        android:textStyle="bold"
-                        android:paddingHorizontal="9dp"
-                        android:paddingVertical="4dp" />
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
-                    android:text="12/27 (금) 18:00–22:00 · 홀"
-                    android:textColor="@color/text_tertiary"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="지원자 확인 후 승인 →"
-                    android:textColor="@color/brand"
-                    android:textSize="12sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/req_2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="vertical"
-                android:background="@drawable/bg_card"
-                android:padding="14dp"
-                android:foreground="?attr/selectableItemBackground">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="지수 → 대타 요청"
-                        android:textColor="@color/text_primary"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/bg_badge_pending"
-                        android:text="지원자 1"
-                        android:textColor="@color/warn_orange"
-                        android:textSize="10sp"
-                        android:textStyle="bold"
-                        android:paddingHorizontal="9dp"
-                        android:paddingVertical="4dp" />
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
-                    android:text="12/29 (일) 10:00–15:00 · 주방"
-                    android:textColor="@color/text_tertiary"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="지원자 확인 후 승인 →"
-                    android:textColor="@color/brand"
-                    android:textSize="12sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
+                android:layout_marginTop="24dp"
+                android:gravity="center"
+                android:text="승인 대기 중인 대타 요청이 없습니다."
+                android:textColor="@color/text_tertiary"
+                android:textSize="12sp"
+                android:visibility="gone" />
         </LinearLayout>
 
         <!-- ===== done ===== -->
@@ -182,92 +84,16 @@
             android:orientation="vertical"
             android:visibility="gone">
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/tv_done_empty"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:background="@drawable/bg_card"
-                android:padding="14dp">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="12/18 마감 · 태윤이 대체"
-                        android:textColor="@color/text_primary"
-                        android:textSize="13sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="3dp"
-                        android:text="현우 요청 · 승인 완료"
-                        android:textColor="@color/text_tertiary"
-                        android:textSize="11sp" />
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/bg_badge_approved"
-                    android:text="APPROVED"
-                    android:textColor="@color/brand"
-                    android:textSize="10sp"
-                    android:textStyle="bold"
-                    android:paddingHorizontal="9dp"
-                    android:paddingVertical="4dp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:background="@drawable/bg_card"
-                android:padding="14dp">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="12/14 홀 · 거절됨"
-                        android:textColor="@color/text_primary"
-                        android:textSize="13sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="3dp"
-                        android:text="서연 요청 · 대체 인원 없음"
-                        android:textColor="@color/text_tertiary"
-                        android:textSize="11sp" />
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/bg_badge_rejected"
-                    android:text="REJECTED"
-                    android:textColor="@color/accent_red"
-                    android:textSize="10sp"
-                    android:textStyle="bold"
-                    android:paddingHorizontal="9dp"
-                    android:paddingVertical="4dp" />
-            </LinearLayout>
+                android:layout_marginTop="24dp"
+                android:gravity="center"
+                android:text="처리된 대타 요청이 없습니다."
+                android:textColor="@color/text_tertiary"
+                android:textSize="12sp"
+                android:visibility="gone" />
         </LinearLayout>
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

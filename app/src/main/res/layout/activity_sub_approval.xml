@@ -61,6 +61,7 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/tv_req_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="민지님의 대타 요청"
@@ -88,7 +89,7 @@
 
                 <LinearLayout style="@style/DetailRow">
                     <TextView style="@style/DetailKey" android:text="근무" />
-                    <TextView style="@style/DetailVal" android:text="12/3 (수) 14:00–18:00" />
+                    <TextView android:id="@+id/tv_shift" style="@style/DetailVal" android:text="12/3 (수) 14:00–18:00" />
                 </LinearLayout>
                 <View style="@style/DetailDivider" />
                 <LinearLayout style="@style/DetailRow">
@@ -103,11 +104,12 @@
                 <View style="@style/DetailDivider" />
                 <LinearLayout style="@style/DetailRow">
                     <TextView style="@style/DetailKey" android:text="지원자" />
-                    <TextView style="@style/DetailVal" android:text="현우 (1명)" />
+                    <TextView android:id="@+id/tv_applicants" style="@style/DetailVal" android:text="없음" />
                 </LinearLayout>
             </LinearLayout>
 
             <TextView
+                android:id="@+id/tv_reason"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"

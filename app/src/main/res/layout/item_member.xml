@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/MemberRow"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <View style="@style/MemberAvatar" />
+
+    <LinearLayout style="@style/MemberMeta">
+        <TextView android:id="@+id/tv_name" style="@style/MemberName" android:text="이름" />
+        <TextView android:id="@+id/tv_sub" style="@style/MemberSub" android:text="역할" />
+    </LinearLayout>
+</LinearLayout>
