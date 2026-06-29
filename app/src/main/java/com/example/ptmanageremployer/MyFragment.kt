@@ -7,10 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.example.ptmanageremployer.data.Network
+import com.example.ptmanageremployer.data.NotificationSettingUpdate
 import com.example.ptmanageremployer.data.TokenStore
+import com.example.ptmanageremployer.data.toUserMessage
 import kotlinx.coroutines.launch
 
 class MyFragment : Fragment() {
@@ -31,9 +34,10 @@ class MyFragment : Fragment() {
         view.findViewById<View>(R.id.row_members).setOnClickListener {
             startActivity(Intent(requireContext(), MembersActivity::class.java))
         }
-        view.findViewById<View>(R.id.row_noti).setOnClickListener {
-            Toast.makeText(requireContext(), "알림 설정", Toast.LENGTH_SHORT).show()
+        view.findViewById<View>(R.id.row_qr).setOnClickListener {
+            startActivity(Intent(requireContext(), QrDisplayActivity::class.java))
         }
+        view.findViewById<View>(R.id.row_noti).setOnClickListener { openNotificationSetting() }
         view.findViewById<View>(R.id.row_logout).setOnClickListener {
             lifecycleScope.launch {
                 runCatching { Network.api.logout() }
@@ -42,6 +46,39 @@ class MyFragment : Fragment() {
                 i.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                 startActivity(i)
             }
+        }
+    }
+
+    /** 알림 카테고리 on/off 를 불러와 다중 선택 다이얼로그로 수정한다. */
+    private fun openNotificationSetting() {
+        lifecycleScope.launch {
+            val s = runCatching { Network.api.getNotificationSetting() }.getOrNull()
+            if (s == null) {
+                Toast.makeText(requireContext(), "알림 설정을 불러오지 못했습니다.", Toast.LENGTH_SHORT).show()
+                return@launch
+            }
+            val labels = arrayOf("대타 알림", "공지 알림", "출퇴근 알림", "가입 신청 알림")
+            val checked = booleanArrayOf(
+                s.swapEnabled, s.noticeEnabled, s.attendanceEnabled, s.joinRequestEnabled,
+            )
+            AlertDialog.Builder(requireContext())
+                .setTitle("알림 설정")
+                .setMultiChoiceItems(labels, checked) { _, which, isChecked -> checked[which] = isChecked }
+                .setPositiveButton("저장") { _, _ ->
+                    lifecycleScope.launch {
+                        runCatching {
+                            Network.api.updateNotificationSetting(
+                                NotificationSettingUpdate(checked[0], checked[1], checked[2], checked[3]),
+                            )
+                        }.onSuccess {
+                            Toast.makeText(requireContext(), "알림 설정을 저장했어요", Toast.LENGTH_SHORT).show()
+                        }.onFailure {
+                            Toast.makeText(requireContext(), it.toUserMessage(), Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                }
+                .setNegativeButton("취소", null)
+                .show()
         }
     }
 }

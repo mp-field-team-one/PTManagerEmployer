@@ -72,6 +72,29 @@
     </LinearLayout>
 
     <TextView
+        android:id="@+id/btn_attach"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/bg_input"
+        android:text="파일 첨부"
+        android:textColor="@color/text_primary"
+        android:textSize="14sp"
+        android:gravity="center"
+        android:paddingVertical="12dp"
+        android:foreground="?attr/selectableItemBackground" />
+
+    <TextView
+        android:id="@+id/tv_attach"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="6dp"
+        android:textColor="@color/text_hint"
+        android:textSize="12sp" />
+
+    <TextView
         android:id="@+id/btn_publish"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

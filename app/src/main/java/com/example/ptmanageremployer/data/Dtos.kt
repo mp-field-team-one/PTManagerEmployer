@@ -186,6 +186,31 @@ data class UpdateProfileRequest(
     val name: String,
 )
 
+data class RegisterDeviceTokenRequest(
+    val token: String,
+    val platform: String = "ANDROID",
+)
+
+data class NotificationSettingDto(
+    val userId: Long? = null,
+    val swapEnabled: Boolean = true,
+    val noticeEnabled: Boolean = true,
+    val attendanceEnabled: Boolean = true,
+    val joinRequestEnabled: Boolean = true,
+)
+
+data class NotificationSettingUpdate(
+    val swapEnabled: Boolean? = null,
+    val noticeEnabled: Boolean? = null,
+    val attendanceEnabled: Boolean? = null,
+    val joinRequestEnabled: Boolean? = null,
+)
+
+// ---- 매장 운영(QR / 시급) ----
+data class QrTokenResponse(val qrToken: String)
+
+data class UpdateWageRequest(val hourlyWage: Int)
+
 // ---- 인건비(Payroll) ----
 data class PayrollItem(
     val employeeId: Long? = null,

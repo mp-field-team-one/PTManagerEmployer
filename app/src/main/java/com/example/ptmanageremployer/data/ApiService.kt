@@ -1,10 +1,13 @@
 package com.example.ptmanageremployer.data
 
+import okhttp3.MultipartBody
 import retrofit2.http.Body
 import retrofit2.http.DELETE
 import retrofit2.http.GET
+import retrofit2.http.Multipart
 import retrofit2.http.PATCH
 import retrofit2.http.POST
+import retrofit2.http.Part
 import retrofit2.http.Path
 import retrofit2.http.Query
 
@@ -138,4 +141,34 @@ interface ApiService {
         @Query("workplaceId") workplaceId: Long,
         @Query("yearMonth") yearMonth: String,
     ): PayrollSummary
+
+    // ---- 매장 QR / 시급 ----
+    @GET("api/workplaces/{id}/qr-token")
+    suspend fun getQrToken(@Path("id") id: Long): QrTokenResponse
+
+    @PATCH("api/workplaces/{wid}/members/{uid}/wage")
+    suspend fun updateMemberWage(
+        @Path("wid") wid: Long,
+        @Path("uid") uid: Long,
+        @Body body: UpdateWageRequest,
+    ): UserDto
+
+    // ---- 알림 설정 ----
+    @GET("api/users/me/notification-setting")
+    suspend fun getNotificationSetting(): NotificationSettingDto
+
+    @PATCH("api/users/me/notification-setting")
+    suspend fun updateNotificationSetting(@Body body: NotificationSettingUpdate): NotificationSettingDto
+
+    // ---- 공지 첨부 업로드 ----
+    @Multipart
+    @POST("api/notices/attachments")
+    suspend fun uploadAttachment(@Part file: MultipartBody.Part): NoticeAttachmentDto
+
+    // ---- Device token (푸시 / FCM) ----
+    @POST("api/users/me/device-tokens")
+    suspend fun registerDeviceToken(@Body body: RegisterDeviceTokenRequest)
+
+    @DELETE("api/users/me/device-tokens/{token}")
+    suspend fun deleteDeviceToken(@Path("token") token: String)
 }

@@ -38,6 +38,7 @@
         <activity android:name=".NotificationActivity" android:exported="false" />
         <activity android:name=".ProfileEditActivity" android:exported="false" />
         <activity android:name=".MembersActivity" android:exported="false" />
+        <activity android:name=".QrDisplayActivity" android:exported="false" />
     </application>
 
 </manifest>
