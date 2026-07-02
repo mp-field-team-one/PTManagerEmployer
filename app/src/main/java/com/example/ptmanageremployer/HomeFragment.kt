@@ -34,6 +34,9 @@ class HomeFragment : Fragment() {
         view.findViewById<View>(R.id.btn_write_notice).setOnClickListener {
             startActivity(Intent(requireContext(), NoticeWriteActivity::class.java))
         }
+        view.findViewById<View>(R.id.btn_notice_list).setOnClickListener {
+            startActivity(Intent(requireContext(), NoticeListActivity::class.java))
+        }
 
         loadDashboard(view)
     }
@@ -66,6 +69,10 @@ class HomeFragment : Fragment() {
                 view.findViewById<TextView>(R.id.tv_month_labor).text = won(it.totalAmount)
                 view.findViewById<TextView>(R.id.tv_today_labor).text = "—"
             }
+            // 안 읽은 알림 개수(GET /api/notifications/unread-count) → 종 아이콘 빨간 점.
+            val unread = runCatching { Network.api.getNotificationUnreadCount().count }.getOrDefault(0)
+            view.findViewById<View>(R.id.bell_dot).visibility =
+                if (unread > 0) View.VISIBLE else View.GONE
         }
     }
 }

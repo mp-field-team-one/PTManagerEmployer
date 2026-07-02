@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.example.ptmanageremployer.data.Network
 import com.example.ptmanageremployer.data.NotificationSettingUpdate
+import com.example.ptmanageremployer.data.Push
 import com.example.ptmanageremployer.data.TokenStore
 import com.example.ptmanageremployer.data.toUserMessage
 import kotlinx.coroutines.launch
@@ -40,7 +41,10 @@ class MyFragment : Fragment() {
         view.findViewById<View>(R.id.row_noti).setOnClickListener { openNotificationSetting() }
         view.findViewById<View>(R.id.row_logout).setOnClickListener {
             lifecycleScope.launch {
+                // 이 기기의 FCM 토큰을 서버에서 먼저 제거(로그인 상태에서 호출).
+                runCatching { Push.currentToken()?.let { Network.api.deleteDeviceToken(it) } }
                 runCatching { Network.api.logout() }
+                Push.invalidateLocalToken()
                 TokenStore.clear()
                 val i = Intent(requireContext(), LoginActivity::class.java)
                 i.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
