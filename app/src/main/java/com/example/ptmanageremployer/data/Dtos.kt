@@ -80,6 +80,7 @@ data class ShiftDto(
     val startTime: String? = null,
     val endTime: String? = null,
     val checkedInAt: String? = null,
+    val checkedOutAt: String? = null,
     val attendanceStatus: String? = null,
     val createdAt: String? = null,
     val updatedAt: String? = null,
